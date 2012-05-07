@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DBF022A-258E-4311-95A9-DC56970A0D18}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mono.Data.Sqlite_net_4_0.M4A</RootNamespace>
+    <AssemblyName>Mono.Data.Sqlite-net_4_0.M4A</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidSupportedAbis>armeabi%3bx86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_1_1;NET_2_0;NET_3_0;NET_3_5;NET_4_0;SQLITE_STANDARD;M4A</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\build\common\Locale.cs">
+      <Link>Locale.cs</Link>
+    </Compile>
+    <Compile Include="..\..\build\common\MonoTODOAttribute.cs">
+      <Link>MonoTODOAttribute.cs</Link>
+    </Compile>
+    <Compile Include="Assembly\AssemblyInfo.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\LINQ\SQLiteConnection_Linq.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\LINQ\SQLiteFactory_Linq.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\MonoPInvokeCallbackAttribute.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLite3.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLite3_UTF16.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteBase.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnectionPool.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConnectionStringBuilder.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteConvert.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteDataReader.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SqliteDataSourceEnumerator.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteEnlistment.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteException.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteFactory.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteFunction.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteFunctionAttribute.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteKeyReader.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteMetaDataCollectionNames.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteParameter.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteParameterCollection.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteStatement.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SQLiteTransaction.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\SR.Designer.cs" />
+    <Compile Include="Mono.Data.Sqlite_2.0\UnsafeNativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\build\common\Consts.cs.in">
+      <Link>Consts.cs.in</Link>
+    </Compile>
+    <None Include="Assembly\ChangeLog" />
+    <None Include="Mono.Data.Sqlite_2.0\ChangeLog" />
+    <None Include="resources\ChangeLog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\en\index.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\CollationEncodingEnum.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\CollationSequence.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\CollationTypeEnum.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\CommitEventArgs.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\FunctionType.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteCommand.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteCommandBuilder.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteCommitHandler.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteConfig.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteConnection.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteConnectionStringBuilder.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteConvert.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteDataAdapter.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteDataReader.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteDataSourceEnumerator.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteDateFormats.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteErrorCode.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteException.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteFactory.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteFunction.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteFunctionAttribute.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteFunctionEx.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteJournalModeEnum.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteMetaDataCollectionNames.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteParameter.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteParameterCollection.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SqliteTransaction.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SQLiteUpdateEventHandler.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\SynchronizationModes.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\TypeAffinity.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\UpdateEventArgs.xml" />
+    <Content Include="Documentation\en\Mono.Data.Sqlite\UpdateEventType.xml" />
+    <Content Include="Documentation\en\ns-Mono.Data.Sqlite.xml" />
+    <Content Include="Mono.Data.Sqlite_2.0\.gitattributes" />
+    <Content Include="Mono.Data.Sqlite_2.0\LINQ\.gitattributes" />
+    <Content Include="resources\.gitattributes" />
+    <Content Include="resources\.gitignore" />
+    <Content Include="resources\DataTypes.xml" />
+    <Content Include="resources\MetaDataCollections.xml" />
+    <Content Include="resources\SQLiteCommand.bmp" />
+    <Content Include="resources\SQLiteConnection.bmp" />
+    <Content Include="resources\SQLiteDataAdapter.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -500,7 +500,11 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_origin_name_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+      #if !M4A
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_origin_name(stmt._sqlite_stmt, index), -1);
+#else
+      return this.ColumnName(stmt, index);
+#endif
 #endif
     }
 
@@ -510,7 +514,10 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_database_name_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+      #if !M4A
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_database_name(stmt._sqlite_stmt, index), -1);
+#endif
+      return "main";
 #endif
     }
 
@@ -520,7 +527,11 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_table_name_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+#if !M4A
       return UTF8ToString(UnsafeNativeMethods.sqlite3_column_table_name(stmt._sqlite_stmt, index), -1);
+#endif
+      var fromPart = stmt._command.CommandText.Substring(stmt._command.CommandText.IndexOf("FROM"));
+      return fromPart.Substring(fromPart.IndexOf("[") + 1, fromPart.IndexOf("]") - fromPart.IndexOf("[") - 1);
 #endif
     }
 
@@ -540,8 +551,12 @@ namespace Mono.Data.Sqlite
 #else
       dtLen = -1;
       csLen = -1;
+#if !M4A
       n = UnsafeNativeMethods.sqlite3_table_column_metadata(_sql, ToUTF8(dataBase), ToUTF8(table), ToUTF8(column), out dataTypePtr, out collSeqPtr, out nnotNull, out nprimaryKey, out nautoInc);
 #endif
+#endif
+
+#if !M4A
       if (n > 0) throw new SqliteException(n, SQLiteLastError());
 
       dataType = UTF8ToString(dataTypePtr, dtLen);
@@ -550,7 +565,15 @@ namespace Mono.Data.Sqlite
       notNull = (nnotNull == 1);
       primaryKey = (nprimaryKey == 1);
       autoIncrement = (nautoInc == 1);
+#endif
+
+      notNull = false;
+      autoIncrement = false;
+      primaryKey = false;
+      dataType = string.Empty;
+      collateSequence = string.Empty;
     }
+
 
     internal override double GetDouble(SqliteStatement stmt, int index)
     {

@@ -113,7 +113,10 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_origin_name16_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+#if !M4A
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_origin_name16(stmt._sqlite_stmt, index), -1);
+#endif
+      return this.ColumnName(stmt, index);
 #endif
     }
 
@@ -123,7 +126,10 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_database_name16_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+#if !M4A
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_database_name16(stmt._sqlite_stmt, index), -1);
+#endif
+      return "main";
 #endif
     }
 
@@ -133,7 +139,11 @@ namespace Mono.Data.Sqlite
       int len;
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_table_name16_interop(stmt._sqlite_stmt, index, out len), len);
 #else
+#if !M4A
       return UTF16ToString(UnsafeNativeMethods.sqlite3_column_table_name16(stmt._sqlite_stmt, index), -1);
+#endif
+      var fromPart = stmt._command.CommandText.Substring(stmt._command.CommandText.IndexOf("FROM"));
+      return fromPart.Substring(fromPart.IndexOf("[") + 1, fromPart.IndexOf("]") - fromPart.IndexOf("[") - 1);
 #endif
     }
 

@@ -21,6 +21,10 @@ using System.Runtime.ConstrainedExecution;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
+#if !M4A
+[assembly: SecurityRules(SecurityRuleSet.Level1)]
+#endif
+
 #if PLATFORM_COMPACTFRAMEWORK && RETARGETABLE
 [assembly: AssemblyFlags(AssemblyNameFlags.Retargetable)]
 #endif
@@ -58,6 +62,3 @@ using System.Runtime.ConstrainedExecution;
 #if !PLATFORM_COMPACTFRAMEWORK
 [assembly: AssemblyFileVersion("1.0.61.0")]
 #endif
-
-[assembly: AssemblyDelaySign (true)]
-[assembly: AssemblyKeyFile ("../mono.pub")]
